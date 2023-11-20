@@ -1,9 +1,1 @@
-* {
-    font-family: "Montserrat", sans-serif;
-    }
-    
-    header,main,body,article {
-    max-width: 1240px;
-    margin: auto;
-    
-    }
+@use './sass/Utils/library' as *;

@@ -13,7 +13,6 @@ import './App.module.scss'
 
 
 // On definit le composant principal "App" qui met en place le routage pour l'application 
-
 export default function App() {
   document.title = 'Site Kasa - Location d appartements entre particuliers'
   
