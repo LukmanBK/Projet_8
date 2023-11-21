@@ -15,11 +15,11 @@
         padding: 0 50px;
     }
     h1 {
-        font-size: map-get($font-size, Title-NotFound);
+        font-size: map-get($font-size, Title-notFound);
         font-weight: map-get($font-weight, Bold);
         margin: 0;
         @include bp (mobile) {
-            font-size: map-get($font-size , Title-Responsive-NotFound);
+            font-size: map-get($font-size , Title-Responsive-notFound);
         }
     }
     p {

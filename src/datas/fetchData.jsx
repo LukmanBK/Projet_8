@@ -1,6 +1,6 @@
 import  { useState, useEffect } from 'react'
 
-// On crée un hook personnalisé pour charger les donnee depuis l'url
+// On cree un hook personnalisé pour charger les donnee depuis l'url
 export default function FetchData (url) {
     
     // On initialise les etats pour les donnees recuperees, le chargement et les erreurs
@@ -8,7 +8,7 @@ export default function FetchData (url) {
     const [isLoading, setLoading] = useState(true)
 	const [error, setError] = useState(false)
 
-    //On execute une fonction asynchrone pour fetcher les donnees, gerer les erreurs et mettre a jour le etats
+    //On execute une fonction asynchrone pour fetcher les donnees, gerer les erreurs et mettre a jour les etats
     useEffect(() => {
         setLoading(true)
         async function fetchDataLogement() {
