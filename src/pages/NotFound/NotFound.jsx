@@ -6,7 +6,7 @@ const NotFound = () => {
     <>
     <main className= {style.error}>
       <h1>404</h1>
-      <p>Oops! La page que vous demandez n'existe pas.</p>
+      <p>Oups! La page que vous demandez n'existe pas.</p>
       <Link to='/home'> {`Retourner à la page d'accueil`} </Link>
     </main>
     </>
