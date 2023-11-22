@@ -11,7 +11,7 @@ export default function Header() {
     <img src={`${logoHeader}`} alt='logo Kasa' className={style.nav__logo}/>
         <ul className={style.nav__link}>
             <li>
-                <NavLink to='/home'>Accueil</NavLink>
+                <NavLink to='/'>Accueil</NavLink>
                 <NavLink to='/about'>À Propos</NavLink>
             </li>
         </ul>
