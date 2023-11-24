@@ -1,12 +1,11 @@
-// Integration des outils de routage, recuperation des donnees, importe les styles
 import { useParams, useNavigate } from 'react-router-dom'
 import FetchData from '../../datas/fetchData'
 import style from '../Apartment/Apartment.module.scss'
-
+import Collapse from '../../components/Collapse/collapse'
 import Loader from '../../components/Loader/loader'
+import OwnerInfo from '../../components/OwnerInfo/ownerInfo'
+import Rating from '../../components/Rating/rating'
 
-
-// Recuperation des données 
 export default function Apartment() {
     
     const descriptionTitle = 'Description'
@@ -16,7 +15,7 @@ export default function Apartment() {
     const navigate = useNavigate()
     const apartment = FetchData(url) 
     
-    // gestion de l'état de chargement et des erreurs
+    
     if (apartment.isLoading) { //
         return <Loader />
     }
@@ -24,9 +23,61 @@ export default function Apartment() {
         return <div>Erreur de chargement...</div>
     }
     const getApartmentById = apartment.dataLog.find((item) => item.id === id) 
+
     if(getApartmentById === undefined){
-        navigate('/NotFound') // redirection vers la page 'NotFound' si aucun appartement n'est trouvé
+        navigate('/NotFound')
     }
     
-  
+    return (
+        <>
+                 
+            <main key= {getApartmentById.id} className={style.mainContainer}>
+              
+                <section className= {style.sectionInfo}>
+                    <article className={style.apartmentInfo}>
+                        <div className={style.apartmentTitle__detail}>
+                            <h2>{getApartmentById.title}</h2>
+                            <p>{getApartmentById.location}</p>
+                        </div>
+                        <ul className={style.apartmentTitle__tag}>
+                            {getApartmentById.tags.map((tag, index) =>
+                                <li key={index}>{tag}</li>
+                            )}
+                        </ul>
+                    </article>
+                    <article className={style.ownerInfo}>
+                        <OwnerInfo 
+                            key={`${getApartmentById.host.name}-${getApartmentById.host.index}`}
+                            name={getApartmentById.host.name}
+                            picture={getApartmentById.host.picture}
+                        />
+                        <Rating 
+                            ratingValue={getApartmentById.rating}
+                        />
+                    </article>
+                </section>
+                <section className= {style.sectionCollapse}>
+                        <Collapse
+                            key={`description appartment ${id}`}
+                            title={descriptionTitle}
+                            detail={<p>{getApartmentById.description}</p>}
+                        >
+                        </Collapse>
+                        <Collapse
+                            key={`equipments appartment ${id}`}
+                            title={equipmentTitle}
+                            detail={
+                                <ul>
+                                {getApartmentById.equipments.map((equipment, index) =>
+                                    <li key={index}>{equipment}</li>
+                                )}
+                                </ul>
+                            }
+                        >
+                        </Collapse>
+                </section>
+            </main>
+        </>
+    )
+
 }
