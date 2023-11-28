@@ -20,7 +20,7 @@
     margin-bottom: 24px;
     @include bp (mobile) {
         flex-direction: column;
-        gap: 16px;
+        gap: 10px;
         margin-bottom: 0px;
     }
     .apartmentInfo{
@@ -116,14 +116,19 @@
 }
 
 .sectionCollapse {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 76px;
-    @include bp (tab) {     
+
+  
+      
+
+    @include bp (tab) {  
+        grid-template-columns: repeat(1, auto);   
         gap: 40px;
     }
     @include bp (mobile) {
-        flex-direction: column;
+        grid-template-columns: repeat(1, auto);
         gap: 20px;
     }
 }

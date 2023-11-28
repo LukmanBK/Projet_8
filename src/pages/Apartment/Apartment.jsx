@@ -5,6 +5,7 @@ import Collapse from '../../components/Collapse/collapse'
 import Loader from '../../components/Loader/loader'
 import OwnerInfo from '../../components/OwnerInfo/ownerInfo'
 import Rating from '../../components/Rating/rating'
+import Carousel from '../../components/Carousel/carousel'
 
 export default function Apartment() {
     
@@ -32,7 +33,10 @@ export default function Apartment() {
         <>
                  
             <main key= {getApartmentById.id} className={style.mainContainer}>
-              
+            <Carousel
+                id={getApartmentById.id}
+                pictures={getApartmentById.pictures}
+                />
                 <section className= {style.sectionInfo}>
                     <article className={style.apartmentInfo}>
                         <div className={style.apartmentTitle__detail}>
@@ -45,7 +49,7 @@ export default function Apartment() {
                             )}
                         </ul>
                     </article>
-                    <article className={style.ownerInfo}>
+                    <article className={style.infoOwner}>
                         <OwnerInfo 
                             key={`${getApartmentById.host.name}-${getApartmentById.host.index}`}
                             name={getApartmentById.host.name}
