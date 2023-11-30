@@ -15,8 +15,7 @@ export default function Card ({ id, title, cover }) {
 }
 
 Card.propTypes = {
-    apartment: PropTypes.node,
-    title: PropTypes.node,
-    cover: PropTypes.node,
-    id: PropTypes.node
-    }
+    id: PropTypes.node.isRequired,
+    title: PropTypes.node.isRequired,
+    cover: PropTypes.node.isRequired,
+};

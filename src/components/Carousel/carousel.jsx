@@ -6,12 +6,13 @@ import { PropTypes } from 'prop-types';
 
 export default function Carousel ({id, pictures}) {
 
+    // State Initialization
     const [pictureCurrent, setPictureCurrent] = useState(0);
     const slidesLength = pictures.length;
 
     const numberSlide = `${pictureCurrent + 1} / ${slidesLength}` 
 
-
+// Navigation Slide
     function nextSlide() {
         setPictureCurrent(pictureCurrent === slidesLength - 1 ? 0 : pictureCurrent + 1);
     }
@@ -23,6 +24,7 @@ export default function Carousel ({id, pictures}) {
     
     return (
         <section key={id} className={style.sectionImageRental}>
+           
             {slidesLength > 1 &&
             <>
                 <img src={arrowLeft} alt="Image précédente" onClick={prevSlide} className={style.arrowLeft}/>
@@ -35,8 +37,10 @@ export default function Carousel ({id, pictures}) {
                     <div key={index} className={pictureCurrent === index ? style.slideActive : style.slide}>
                         {index === pictureCurrent &&
                             <>
+    
                                 <img src={slide} alt={`photo de l'appartement`} />
                                 {slidesLength > 1 &&
+                                // Indication de la position actuelle
                                     <span className={style.slideNumber}>{numberSlide}</span>
                                 }
                             </>
@@ -49,5 +53,5 @@ export default function Carousel ({id, pictures}) {
 }
 
 Carousel.propTypes = {
-    length: PropTypes.node
+    length: PropTypes.number
 }

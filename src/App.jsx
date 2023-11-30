@@ -1,7 +1,7 @@
 import Header from './components/Header/header'
 import Footer from './components/Footer/footer'
 import AppRoutes from './components/AppRoutes/appRoutes'
-import './App.module.scss'
+
 
 
 
