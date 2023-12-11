@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams} from 'react-router-dom'
 import FetchData from '../../datas/fetchData'
 import style from '../Apartment/Apartment.module.scss'
 import Collapse from '../../components/Collapse/collapse'
@@ -6,6 +6,7 @@ import Loader from '../../components/Loader/loader'
 import OwnerInfo from '../../components/OwnerInfo/ownerInfo'
 import Rating from '../../components/Rating/rating'
 import Carousel from '../../components/Carousel/carousel'
+import NotFound from '../NotFound/NotFound'
 
 export default function Apartment() {
     
@@ -13,7 +14,6 @@ export default function Apartment() {
     const equipmentTitle = 'Équipement'
     const url = '/src/datas/logement.json'
     const {id} = useParams()
-    const navigate = useNavigate()
     const apartment = FetchData(url) 
     
     
@@ -26,7 +26,7 @@ export default function Apartment() {
     const getApartmentById = apartment.dataLog.find((item) => item.id === id) 
 
     if(getApartmentById === undefined){
-        navigate('/NotFound')
+       return <NotFound />
     }
     
     return (

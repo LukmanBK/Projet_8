@@ -4,7 +4,7 @@ import arrowLeft from '../../assets/arrowleft.png';
 import arrowRight from '../../assets/arrowRight.png';
 import { PropTypes } from 'prop-types';
 
-export default function Carousel ({id, pictures}) {
+export default function Carousel ({pictures}) {
 
     // State Initialization
     const [pictureCurrent, setPictureCurrent] = useState(0);
@@ -23,7 +23,7 @@ export default function Carousel ({id, pictures}) {
 
     
     return (
-        <section key={id} className={style.sectionImageRental}>
+        <section  className={style.sectionImageRental}>
            
             {slidesLength > 1 &&
             <>

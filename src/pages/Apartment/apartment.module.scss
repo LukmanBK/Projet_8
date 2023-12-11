@@ -119,7 +119,10 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 76px;
-
+    font-weight: 300;
+    ul { 
+    font-weight: 300;
+}
   
       
 
